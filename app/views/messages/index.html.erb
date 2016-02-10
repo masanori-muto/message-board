@@ -11,23 +11,22 @@
     <% end %>
   </div>
 </div>
-<div class="form-horizontal well" role="form">
-  <div class="form-group">
-  <%= form_for(@message) do |f| %>
-    <label for="" class="col-sm-1 control-label">名前:</label>
-    <div class="col-sm-11">
-      <%= f.text_field :name, :class => "form-control", :placeholder => "Your name" %> 
-    </div>
+<!--<div class="form-horizontal well" role="form">-->
+<%= form_for(@message, html: {class: "form-horizontal well"}) do |f| %>
+<div class="form-group">
+  <label for="" class="col-sm-1 control-label">名前:</label>
+  <div class="col-sm-11">
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Your name" %> 
   </div>
-  
-  <div class="form-group">
-    <label for="" class="col-sm-1 control-label">内容:</label>
-    <div class="col-sm-11">
-      <%= f.text_area :body, :class => "form-control", :placeholder => "Textarea", :rows => 3 %> 
-    </div>
-  </div>
-  <div class="form-group create-message-area">
-    <%= f.submit class: "btn btn-sm btn-primary center-block" %>
-  </div>
-<% end %>
 </div>
+
+<div class="form-group">
+  <label for="" class="col-sm-1 control-label">内容:</label>
+  <div class="col-sm-11">
+    <%= f.text_area :body, :class => "form-control", :placeholder => "Textarea", :rows => 3 %> 
+  </div>
+</div>
+<div class="form-group create-message-area">
+  <%= f.submit class: "btn btn-sm btn-primary center-block" %>
+</div>
+<% end %>
