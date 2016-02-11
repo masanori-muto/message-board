@@ -12,20 +12,34 @@
   </div>
 </div>
 <%= form_for(@message, html: {class: "form-horizontal well"}) do |f| %>
-<div class="form-group">
-  <label for="message_name" class="col-sm-1 control-label">名前:</label>
-  <div class="col-sm-11">
-    <%= f.text_field :name, :class => "form-control", :placeholder => "Your name" %> 
+  <!-- /以下7.3の追加分 -->
+  <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @message.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- /以上7.3の追加分 -->
+  <div class="form-group">
+    <label for="message_name" class="col-sm-1 control-label">名前:</label>
+    <div class="col-sm-11">
+      <%= f.text_field :name, :class => "form-control", :placeholder => "Your name" %> 
+    </div>
   </div>
-</div>
-
-<div class="form-group">
-  <label for="message_body" class="col-sm-1 control-label">内容:</label>
-  <div class="col-sm-11">
-    <%= f.text_area :body, :class => "form-control", :placeholder => "Textarea", :rows => 3 %> 
+  
+  <div class="form-group">
+    <label for="message_body" class="col-sm-1 control-label">内容:</label>
+    <div class="col-sm-11">
+      <%= f.text_area :body, :class => "form-control", :placeholder => "Textarea", :rows => 3 %> 
+    </div>
   </div>
-</div>
-<div class="form-group create-message-area">
-  <%= f.submit class: "btn btn-sm btn-primary center-block" %>
-</div>
+  <div class="form-group create-message-area">
+    <%= f.submit class: "btn btn-sm btn-primary center-block" %>
+  </div>
 <% end %>
