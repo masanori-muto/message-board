@@ -1,5 +1,5 @@
 <%= form_for(@message, html: {class: "form-horizontal well"}) do |f| %>
-  <!-- /以下7.3の追加分 -->
+  <!-- /▽7.3の追加分 -->
   <% if @message.errors.present? %>
     <div class="alert alert-danger">
       <%= alert %>
@@ -12,14 +12,21 @@
       </ul>
     </div>
   <% end %>
-  <!-- /以上7.3の追加分 -->
+  <!-- /△7.3の追加分 -->
   <div class="form-group">
     <label for="message_name" class="col-sm-1 control-label">名前:</label>
     <div class="col-sm-11">
       <%= f.text_field :name, :class => "form-control", :placeholder => "Your name" %> 
     </div>
   </div>
-  
+  <!-- /▽年齢かラムの追加分 -->
+  <div class="form-group">
+    <label for="message_age" class="col-sm-1 control-label">年齢:</label>
+    <div class="col-sm-11">
+      <%= f.text_field :age, :class => "form-control", :placeholder => "Your age" %> 
+    </div>
+  </div>
+  <!-- /△年齢かラムの追加分 -->
   <div class="form-group">
     <label for="message_body" class="col-sm-1 control-label">内容:</label>
     <div class="col-sm-11">
